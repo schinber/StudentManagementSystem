@@ -1,0 +1,36 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>班级列表</h2>
+    <a href="{% url 'class_create' %}" class="btn btn-primary mb-3">添加班级</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>班级名称</th>
+                <th>所属院系</th>
+                <th>年级</th>
+                <th>专业</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for class_info in classes %}
+            <tr>
+                <td>{{ class_info.name }}</td>
+                <td>{{ class_info.department }}</td>
+                <td>{{ class_info.grade }}</td>
+                <td>{{ class_info.major }}</td>
+                <td>
+                    <a href="{% url 'class_detail' class_info.pk %}" class="btn btn-info btn-sm">详情</a>
+                    <a href="{% url 'class_update' class_info.pk %}" class="btn btn-warning btn-sm">编辑</a>
+                    <a href="{% url 'class_delete' class_info.pk %}" class="btn btn-danger btn-sm">删除</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">暂无班级信息</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

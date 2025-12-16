@@ -1,0 +1,36 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>课程列表</h2>
+    <a href="{% url 'course_create' %}" class="btn btn-primary mb-3">添加课程</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>课程代码</th>
+                <th>课程名称</th>
+                <th>所属院系</th>
+                <th>学分</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.code }}</td>
+                <td>{{ course.name }}</td>
+                <td>{{ course.department }}</td>
+                <td>{{ course.credit }}</td>
+                <td>
+                    <a href="{% url 'course_detail' course.pk %}" class="btn btn-info btn-sm">详情</a>
+                    <a href="{% url 'course_update' course.pk %}" class="btn btn-warning btn-sm">编辑</a>
+                    <a href="{% url 'course_delete' course.pk %}" class="btn btn-danger btn-sm">删除</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">暂无课程信息</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

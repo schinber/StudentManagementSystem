@@ -1,0 +1,61 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>{{ student.name }} 详情</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            基本信息
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>学号:</strong> {{ student.student_id }}</p>
+                    <p><strong>姓名:</strong> {{ student.name }}</p>
+                    <p><strong>性别:</strong> {{ student.get_gender_display }}</p>
+                    <p><strong>出生日期:</strong> {{ student.birth_date }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>班级:</strong> {{ student.class_info }}</p>
+                    <p><strong>入学日期:</strong> {{ student.admission_date }}</p>
+                    <p><strong>状态:</strong> {{ student.get_status_display }}</p>
+                    <p><strong>联系电话:</strong> {{ student.phone }}</p>
+                </div>
+            </div>
+            <p><strong>电子邮箱:</strong> {{ student.email }}</p>
+            <p><strong>家庭住址:</strong> {{ student.address }}</p>
+        </div>
+    </div>
+    
+    <div class="card mb-3">
+        <div class="card-header">
+            成绩信息
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>课程</th>
+                        <th>学期</th>
+                        <th>成绩</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in student.score_set.all %}
+                    <tr>
+                        <td>{{ score.course.name }}</td>
+                        <td>{{ score.semester }}</td>
+                        <td>{{ score.score }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" class="text-center">暂无成绩信息</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <a href="{% url 'student_list' %}" class="btn btn-primary">返回列表</a>
+    <a href="{% url 'student_update' student.pk %}" class="btn btn-warning">编辑信息</a>
+{% endblock %}

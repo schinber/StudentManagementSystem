@@ -1,0 +1,28 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>{{ course.name }} 详情</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            课程信息
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>课程代码:</strong> {{ course.code }}</p>
+                    <p><strong>课程名称:</strong> {{ course.name }}</p>
+                    <p><strong>所属院系:</strong> {{ course.department }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>学分:</strong> {{ course.credit }}</p>
+                    <p><strong>创建时间:</strong> {{ course.created_at }}</p>
+                    <p><strong>更新时间:</strong> {{ course.updated_at }}</p>
+                </div>
+            </div>
+            <p><strong>课程描述:</strong> {{ course.description }}</p>
+        </div>
+    </div>
+    
+    <a href="{% url 'course_list' %}" class="btn btn-primary">返回列表</a>
+    <a href="{% url 'course_update' course.pk %}" class="btn btn-warning">编辑信息</a>
+{% endblock %}

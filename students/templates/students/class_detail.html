@@ -1,0 +1,27 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>{{ class_info.name }} 详情</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            班级信息
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>班级名称:</strong> {{ class_info.name }}</p>
+                    <p><strong>所属院系:</strong> {{ class_info.department }}</p>
+                    <p><strong>年级:</strong> {{ class_info.grade }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>专业:</strong> {{ class_info.major }}</p>
+                    <p><strong>创建时间:</strong> {{ class_info.created_at }}</p>
+                    <p><strong>更新时间:</strong> {{ class_info.updated_at }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="{% url 'class_list' %}" class="btn btn-primary">返回列表</a>
+    <a href="{% url 'class_update' class_info.pk %}" class="btn btn-warning">编辑信息</a>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>成绩详情</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            成绩信息
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>学生:</strong> {{ score.student }}</p>
+                    <p><strong>课程:</strong> {{ score.course }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>学期:</strong> {{ score.semester }}</p>
+                    <p><strong>成绩:</strong> {{ score.score }}</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <p><strong>创建时间:</strong> {{ score.created_at }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>更新时间:</strong> {{ score.updated_at }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="{% url 'score_list' %}" class="btn btn-primary">返回列表</a>
+    <a href="{% url 'score_update' score.pk %}" class="btn btn-warning">编辑信息</a>
+{% endblock %}

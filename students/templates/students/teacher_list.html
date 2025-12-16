@@ -1,0 +1,38 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>教师列表</h2>
+    <a href="{% url 'teacher_create' %}" class="btn btn-primary mb-3">添加教师</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>教师工号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>所属院系</th>
+                <th>联系电话</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers %}
+            <tr>
+                <td>{{ teacher.teacher_id }}</td>
+                <td>{{ teacher.name }}</td>
+                <td>{{ teacher.get_gender_display }}</td>
+                <td>{{ teacher.department }}</td>
+                <td>{{ teacher.phone }}</td>
+                <td>
+                    <a href="{% url 'teacher_detail' teacher.pk %}" class="btn btn-info btn-sm">详情</a>
+                    <a href="{% url 'teacher_update' teacher.pk %}" class="btn btn-warning btn-sm">编辑</a>
+                    <a href="{% url 'teacher_delete' teacher.pk %}" class="btn btn-danger btn-sm">删除</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">暂无教师信息</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

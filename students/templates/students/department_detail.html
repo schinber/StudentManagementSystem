@@ -1,0 +1,25 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>{{ department.name }} 详情</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            院系信息
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>院系名称:</strong> {{ department.name }}</p>
+                    <p><strong>创建时间:</strong> {{ department.created_at }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>更新时间:</strong> {{ department.updated_at }}</p>
+                </div>
+            </div>
+            <p><strong>院系描述:</strong> {{ department.description }}</p>
+        </div>
+    </div>
+    
+    <a href="{% url 'department_list' %}" class="btn btn-primary">返回列表</a>
+    <a href="{% url 'department_update' department.pk %}" class="btn btn-warning">编辑信息</a>
+{% endblock %}

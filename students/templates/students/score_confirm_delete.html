@@ -1,0 +1,11 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>删除成绩</h2>
+    <p>确定要删除 {{ score.student }} 在 {{ score.course }} 课程的成绩吗？</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">确认删除</button>
+        <a href="{% url 'score_list' %}" class="btn btn-secondary">取消</a>
+    </form>
+{% endblock %}

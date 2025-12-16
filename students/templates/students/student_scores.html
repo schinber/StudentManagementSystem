@@ -1,0 +1,45 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="mb-4">我的成绩</h2>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">{{ student.name }}的成绩列表</h4>
+            </div>
+            <div class="card-body">
+                {% if scores %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>课程名称</th>
+                                    <th>课程代码</th>
+                                    <th>学期</th>
+                                    <th>成绩</th>
+                                    <th>学分</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for score in scores %}
+                                    <tr>
+                                        <td>{{ score.course.name }}</td>
+                                        <td>{{ score.course.code }}</td>
+                                        <td>{{ score.semester }}</td>
+                                        <td>{{ score.score }}</td>
+                                        <td>{{ score.course.credit }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info text-center">
+                        <p class="mb-0">暂无成绩记录</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

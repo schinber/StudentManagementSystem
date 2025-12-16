@@ -1,0 +1,101 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4 mb-4">欢迎使用学生管理系统</h1>
+        
+        {% if user.is_superuser or user.teacher %}
+            <p class="lead mb-4">这是一个功能完善的学生信息管理平台，帮助您高效管理学生、课程和成绩信息。</p>
+            <hr class="my-4">
+            <div class="row mt-5">
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-people display-4 mb-3 text-primary"></i>
+                            <h5 class="card-title">学生管理</h5>
+                            <p class="card-text">管理学生基本信息，包括增删改查和详情查看</p>
+                            <a href="{% url 'student_list' %}" class="btn btn-primary">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-book display-4 mb-3 text-secondary"></i>
+                            <h5 class="card-title">课程管理</h5>
+                            <p class="card-text">管理课程信息，包括课程的添加、编辑和删除</p>
+                            <a href="{% url 'course_list' %}" class="btn btn-secondary">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-bar-chart display-4 mb-3 text-success"></i>
+                            <h5 class="card-title">成绩管理</h5>
+                            <p class="card-text">管理学生成绩，包括成绩的录入、修改和查询</p>
+                            <a href="{% url 'score_list' %}" class="btn btn-success">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-building display-4 mb-3 text-warning"></i>
+                            <h5 class="card-title">班级管理</h5>
+                            <p class="card-text">管理班级信息，包括班级的添加、编辑和删除</p>
+                            <a href="{% url 'class_list' %}" class="btn btn-warning">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-building-fill display-4 mb-3 text-info"></i>
+                            <h5 class="card-title">院系管理</h5>
+                            <p class="card-text">管理院系信息，包括院系的添加、编辑和删除</p>
+                            <a href="{% url 'department_list' %}" class="btn btn-info">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-person-chalkboard display-4 mb-3 text-danger"></i>
+                            <h5 class="card-title">教师管理</h5>
+                            <p class="card-text">管理教师信息，包括教师的添加、编辑和删除</p>
+                            <a href="{% url 'teacher_list' %}" class="btn btn-danger">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p class="lead mb-4">欢迎登录学生中心，您可以在这里查看个人信息和成绩。</p>
+            <hr class="my-4">
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-person-circle display-4 mb-3 text-primary"></i>
+                            <h5 class="card-title">个人中心</h5>
+                            <p class="card-text">查看和管理个人基本信息</p>
+                            <a href="{% url 'student_profile' %}" class="btn btn-primary">进入个人中心</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-bar-chart display-4 mb-3 text-success"></i>
+                            <h5 class="card-title">我的成绩</h5>
+                            <p class="card-text">查询和查看我的课程成绩</p>
+                            <a href="{% url 'student_scores' %}" class="btn btn-success">查看成绩</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

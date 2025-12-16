@@ -1,0 +1,35 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+    <h2>{{ teacher.name }} 详情</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            教师信息
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>教师工号:</strong> {{ teacher.teacher_id }}</p>
+                    <p><strong>姓名:</strong> {{ teacher.name }}</p>
+                    <p><strong>性别:</strong> {{ teacher.get_gender_display }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>所属院系:</strong> {{ teacher.department }}</p>
+                    <p><strong>联系电话:</strong> {{ teacher.phone }}</p>
+                    <p><strong>电子邮箱:</strong> {{ teacher.email }}</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <p><strong>创建时间:</strong> {{ teacher.created_at }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>更新时间:</strong> {{ teacher.updated_at }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="{% url 'teacher_list' %}" class="btn btn-primary">返回列表</a>
+    <a href="{% url 'teacher_update' teacher.pk %}" class="btn btn-warning">编辑信息</a>
+{% endblock %}
