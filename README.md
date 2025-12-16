@@ -4,7 +4,37 @@
 管理员登录
 <img width="1856" height="886" alt="image" src="https://github.com/user-attachments/assets/0b7a6828-4c4c-42dc-9aae-65849c33aab0" />
 
+这个学生管理系统项目使用了以下技术栈：
 
+## 后端技术
+1. **框架**：Django 6.0 - 采用Model-View-Template (MVT)架构
+2. **数据库**：SQLite（Django默认）- 用于数据存储
+3. **认证系统**：Django内置认证 - 处理用户登录、注销和权限控制
+4. **ORM**：Django ORM - 用于数据库操作，避免直接编写SQL
+5. **表单处理**：Django Forms - 用于数据验证和表单生成
+6. **URL路由**：Django URLconf - 处理请求路由和视图映射
+
+## 前端技术
+1. **CSS框架**：Bootstrap 5.3.0 - 用于响应式设计和现代化UI
+2. **图标库**：Bootstrap Icons - 提供UI图标支持
+3. **模板引擎**：Django Template Language (DTL) - 用于动态生成HTML
+4. **JavaScript**：原生JavaScript + Bootstrap Bundle - 处理交互效果
+
+## 开发工具和依赖
+1. **Python** - 项目开发语言
+2. **pip** - 依赖管理工具
+3. **asgiref** - ASGI支持库（Django 3.0+必需）
+4. **sqlparse** - SQL解析库（Django依赖）
+5. **tzdata** - 时区数据支持
+
+## 项目架构特点
+1. **模块化设计** - 按功能划分为学生管理、课程管理、成绩管理等模块
+2. **角色权限控制** - 实现了管理员/教师/学生的角色分离
+3. **数据库查询优化** - 使用select_related和prefetch_related减少N+1查询问题
+4. **响应式设计** - 适配不同设备屏幕尺寸
+5. **代码复用** - 使用模板继承和组件化设计
+
+这个技术栈选择注重了开发效率、安全性和可维护性，适合构建中等规模的Web应用系统。
 
 📝 各功能模块详解
 1. 学生信息管理（基石）
