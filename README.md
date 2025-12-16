@@ -1,4 +1,11 @@
 # StudentManagementSystem
+学生登录页面
+<img width="1504" height="761" alt="image" src="https://github.com/user-attachments/assets/b7a13585-5fe6-4a9e-8992-f5aef5e37694" />
+管理员登录
+<img width="1856" height="886" alt="image" src="https://github.com/user-attachments/assets/0b7a6828-4c4c-42dc-9aae-65849c33aab0" />
+
+
+
 📝 各功能模块详解
 1. 学生信息管理（基石）
 这是所有系统的必备核心，通常包含：
