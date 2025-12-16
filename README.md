@@ -5,6 +5,7 @@
 <img width="1856" height="886" alt="image" src="https://github.com/user-attachments/assets/0b7a6828-4c4c-42dc-9aae-65849c33aab0" />
 
 这个学生管理系统项目使用了以下技术栈：
+python版本：Python 3.13.9
 
 ## 后端技术
 1. **框架**：Django 6.0 - 采用Model-View-Template (MVT)架构
